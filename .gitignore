@@ -1,0 +1,6 @@
+*.idea
+.idea/
+*.idea/
+pom.xml
+threads.iml
+target
