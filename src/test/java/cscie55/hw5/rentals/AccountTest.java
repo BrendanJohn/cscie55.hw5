@@ -61,12 +61,12 @@ public class AccountTest {
 	//tests that settleRental adds the returned video to closed rentals list
 	@Test
 	public void testSettleRental() throws VideoException{
-		Account mikeAccount = new Account("Mike", "Murphy", "mMurphy@gmail.com");
+		Account billAccount = new Account("Bill", "Murphy", "billMurphy@gmail.com");
 		LocalDate dueDate = LocalDate.of(2018, 11, 20);
-		Video forrestGump = new Video("Forrest Gump", 1995);
-		VideoRental rental = new VideoRental(forrestGump, mikeAccount,dueDate);
-		mikeAccount.settleRental(rental);
-		assertEquals( 1, mikeAccount.getClosedRentals().size());
+		Video starWars = new Video("Star Wars", 1983);
+		VideoRental rental = new VideoRental(starWars, billAccount,dueDate);
+		billAccount.settleRental(rental);
+		assertEquals( 1, billAccount.getClosedRentals().size());
 	}
 
 	//tests that settleRental does not function when wrong video passed in
