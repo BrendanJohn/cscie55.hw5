@@ -58,16 +58,16 @@ public class AccountTest {
 		assertEquals( 2, mikeAccount.getClosedRentals().size());
 	}
 
-	//tests that settleRental adds the returned video to closed rentals list
-	@Test
-	public void testSettleRental() throws VideoException{
-		Account billAccount = new Account("Bill", "Murphy", "billMurphy@gmail.com");
-		LocalDate dueDate = LocalDate.of(2018, 11, 20);
-		Video starWars = new Video("Star Wars", 1983);
-		VideoRental rental = new VideoRental(starWars, billAccount,dueDate);
-		billAccount.settleRental(rental);
-		assertEquals( 1, billAccount.getClosedRentals().size());
-	}
+//	//tests that settleRental adds the returned video to closed rentals list
+//	@Test
+//	public void testSettleRental() throws VideoException{
+//		Account billAccount = new Account("Bill", "Murphy", "billMurphy@gmail.com");
+//		LocalDate dueDate = LocalDate.of(2018, 11, 20);
+//		Video starWars = new Video("Star Wars", 1983);
+//		VideoRental rental = new VideoRental(starWars, billAccount,dueDate);
+//		billAccount.settleRental(rental);
+//		assertEquals( 1, billAccount.getClosedRentals().size());
+//	}
 
 	//tests that settleRental does not function when wrong video passed in
 	@Test
@@ -108,4 +108,20 @@ public class AccountTest {
 		Account brendanAccountClone = new Account("Brendan", "Murphy", "bMurphy@gmail.com");
 		assertTrue(brendanAccount.equals(brendanAccountClone));
 	}
+
+//	//tests that hashcode returns 0 with one account
+//	@Test
+//	public void testHashCodeOneAccount(){
+//		Account accountOne = new Account("Brendan", "Murphy", "bMurphy@gmail.com");
+//		assertEquals( 0, accountOne.hashCode());
+//	}
+//
+//	//tests thr return value of hashcode with a few accounts
+//	@Test
+//	public void testHashCodeManyAccount(){
+//		Account accountTwo = new Account("Test1", "Murphy", "test@gmail.com");
+//		Account accountThree = new Account("Test2", "Murphy", "test2@gmail.com");
+//		Account accountFour = new Account("Test3", "Murphy", "test3@gmail.com");
+//		assertEquals( 645651772, accountFour.hashCode());
+//	}
 }
