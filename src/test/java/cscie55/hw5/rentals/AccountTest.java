@@ -34,4 +34,15 @@ public class AccountTest {
 		Video braveHeart = new Video("Brave Heart", 1995);
 		assertEquals(tomAccount.getOpenRentals().size(), 0);
 	}
+
+	//tests that settleRentals adds the returned video to closed rentals list
+	@Test
+	public void testSettleRental() throws VideoException{
+		Account mikeAccount = new Account("Mike", "Murphy", "mMurphy@gmail.com");
+		Video forrestGump = new Video("Forrest Gump", 1995);
+		LocalDate dueDate = LocalDate.of(2018, 11, 20);
+		VideoRental rental = new VideoRental(forrestGump, mikeAccount,dueDate);
+		mikeAccount.settleRentals();
+		assertEquals(mikeAccount.getClosedRentals().size(), 1);
+	}
 }
