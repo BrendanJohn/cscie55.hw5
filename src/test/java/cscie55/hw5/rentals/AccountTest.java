@@ -39,10 +39,26 @@ public class AccountTest {
 	@Test
 	public void testSettleRental() throws VideoException{
 		Account mikeAccount = new Account("Mike", "Murphy", "mMurphy@gmail.com");
-		Video forrestGump = new Video("Forrest Gump", 1995);
 		LocalDate dueDate = LocalDate.of(2018, 11, 20);
+		Video forrestGump = new Video("Forrest Gump", 1995);
 		VideoRental rental = new VideoRental(forrestGump, mikeAccount,dueDate);
 		mikeAccount.settleRentals();
 		assertEquals(mikeAccount.getClosedRentals().size(), 1);
+	}
+
+	//tests that equals method returns false with different accounts
+	@Test
+	public void testEqualsNegative(){
+		Account brendanAccount = new Account("Brendan", "Murphy", "bMurphy@gmail.com");
+		Account mikeAccount = new Account("Mike", "Murphy", "mMurphy@gmail.com");
+		assertFalse(brendanAccount.equals(mikeAccount));
+	}
+
+	//tests that equals method returns true with same accounts
+	@Test
+	public void testEqualsPositive(){
+		Account brendanAccount = new Account("Brendan", "Murphy", "bMurphy@gmail.com");
+		Account brendanAccountClone = new Account("Brendan", "Murphy", "bMurphy@gmail.com");
+		assertTrue(brendanAccount.equals(brendanAccountClone));
 	}
 }
