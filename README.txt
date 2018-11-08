@@ -1,4 +1,5 @@
 Homework 5: Unit testing
+Brendan Murphy
 
 The goal of this assignment is to write unit test around a program that represents a video store.
 
@@ -19,5 +20,9 @@ method returns a Boolean based on whether the rental video has a returned date e
 This logic fails in both cases and could be resolved by changing the method to return true
 if the rental return date is not equal to null. I have commented out these two failing unit tests.
 
-
+When writing the unit tests for the Video class I discovered some unintended behavior in the
+removeFromStock() method. When a video is removed from stock, the availability is set to OUT_OF_STOCK
+however, ths isNotAvailable method only checks for AVAILABILITY.UNAVAILABLE, resulting in a true
+condition being returned when the video is actually removed from stock. To fix this, we could update
+the isNotAvailable method to return true for a the case AVAILABILITY.OUT_OF_STOCK.
 
